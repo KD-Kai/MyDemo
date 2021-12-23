@@ -2,21 +2,19 @@ package com.desaysv.dsvkeydemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import com.desaysv.ivi.platformadapter.app.keypolicy.SvKeyPolicyManager;
+import desaysv.adapter.app.keypolicy.KeyPolicyManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "DsvKeyDemo";
 
-    private SvKeyPolicyManager mKeyPolicyManager = null;
+    private KeyPolicyManager mKeyPolicyManager = null;
     private Context mContext;
 
     /**
@@ -32,17 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = getApplicationContext();
-        mKeyPolicyManager = new SvKeyPolicyManager(this);
+        mKeyPolicyManager = new KeyPolicyManager(this);
         mKeyPolicyManager.registerKeyCallBack(mKeyEventListener, tag1, tag2);
-        mKeyPolicyManager.setHiCarNeedHandle(false);
-
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.desaysv.action.key.VR_LONG_CLICK");
-        intentFilter.addAction("com.desaysv.action.key.VR_SINGLE_CLICK");
-        intentFilter.addAction("com.desaysv.action.key.VR_DOUBLE_CLICK");
-        intentFilter.addAction("com.desaysv.action.key.ON_HOOK");
-        intentFilter.addAction("com.desaysv.action.key.OFF_HOOK");
-        registerReceiver(broadcastReceiver, intentFilter);
         Log.d(TAG, "onCreate");
     }
 
@@ -50,26 +39,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mKeyPolicyManager.unRegisterKeyCallBack(mKeyEventListener, tag1, tag2);
-        unregisterReceiver(broadcastReceiver);
         Log.d(TAG, "onDestroy");
     }
 
-    private SvKeyPolicyManager.OnKeyCallBackListener mKeyEventListener = new SvKeyPolicyManager.OnKeyCallBackListener() {
+    private KeyPolicyManager.OnKeyCallBackListener mKeyEventListener = new KeyPolicyManager.OnKeyCallBackListener() {
         @Override
         public void onKeyEventCallBack(KeyEvent event) {
             Log.d(TAG, "keyCode = " + event.getKeyCode());
-        }
-    };
-
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "onReceive: getAction = " + intent.getAction());
-            Log.d(TAG, "onReceive: EXTRA_KEY_EVENT_STATUS = " + intent.getStringExtra("com.desaysv.key.EXTRA_KEY_EVENT_STATUS"));
-            Log.d(TAG, "onReceive: EXTRA_IS_ON_HOOK_VALID = " + intent.getBooleanExtra("com.desaysv.key.EXTRA_IS_ON_HOOK_VALID", false));
-            Log.d(TAG, "onReceive: EXTRA_PROCESSOR_WE_CHAT = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_WE_CHAT"));
-            Log.d(TAG, "onReceive: EXTRA_PROCESSOR_BT_PHONE = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_BT_PHONE"));
-            Log.d(TAG, "onReceive: EXTRA_PROCESSOR_PHONE_LINK = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_PHONE_LINK"));
         }
     };
 }

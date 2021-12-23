@@ -1,16 +1,16 @@
 package com.desaysv.dsvaudiodemo.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
+
+import desaysv.adapter.app.audio.SvCarAudioManager;
 
 public class NaviDemoFragment extends BaseFragment {
 

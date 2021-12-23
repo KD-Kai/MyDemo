@@ -22,10 +22,11 @@ import android.widget.TextView;
 
 import com.desaysv.dsvaudiodemo.R;
 import com.desaysv.dsvaudiodemo.util.TimeUtil;
-import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import desaysv.adapter.app.audio.SvCarAudioManager;
 
 public abstract class BaseFragment extends Fragment implements View.OnClickListener{
 
