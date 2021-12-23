@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import desaysv.adapter.app.audio.SvCarAudioManager;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
 
