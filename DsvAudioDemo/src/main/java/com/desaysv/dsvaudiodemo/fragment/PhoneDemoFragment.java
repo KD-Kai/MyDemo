@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import desaysv.adapter.app.audio.SvCarAudioManager;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
 
@@ -34,7 +34,7 @@ public class PhoneDemoFragment extends BaseFragment {
         if (mAudioAttributes != null) {
             return;
         }
-        hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_PHONE);
+        hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_BT_RING);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_SERVICE, SERVICE_NAME);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_ACTIVITY, ACTIVITY_NAME);
         hashMap.put(SvCarAudioManager.KEY_SUPPORT_SV_EXTEND_FOCUS_STATE, true);

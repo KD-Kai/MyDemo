@@ -1,23 +1,22 @@
 package com.desaysv.dsvaudiodemo.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-//import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
-
-import desaysv.adapter.app.audio.SvCarAudioManager;
 
 public class NaviDemoFragment extends BaseFragment {
 
     private AudioManager mAudioManager;
     //private AudioAttributes mAudioAttributes;
-    private final int mTargetFocus =  AudioManager.AUDIOFOCUS_GAIN;
+    private final int mTargetFocus =  AudioManager.AUDIOFOCUS_GAIN_TRANSIENT;
 
     private static final String ACTIVITY_NAME = "NA";
     private static final String SERVICE_NAME = "NA";
@@ -36,14 +35,14 @@ public class NaviDemoFragment extends BaseFragment {
         if (mAudioAttributes != null) {
             return;
         }
-        hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_USB_0_VIDEO);
+        hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_NAVI);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_SERVICE, SERVICE_NAME);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_ACTIVITY, ACTIVITY_NAME);
         hashMap.put(SvCarAudioManager.KEY_SUPPORT_SV_EXTEND_FOCUS_STATE, true);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 0);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
-        AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .setUsage(AudioAttributes.USAGE_MEDIA).build();
+        AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION).build();
 
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
