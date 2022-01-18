@@ -1,0 +1,11 @@
+com/desaysv/dsvbootanimdemo/BootAnimReceiver.java
+ com.desaysv.dsvbootanimdemo.BootAnimReceiver
+com/desaysv/dsvbootanimdemo/BuildConfig.java
+ com.desaysv.dsvbootanimdemo.BuildConfig
+com/desaysv/dsvbootanimdemo/BootAnimService.java
+ com.desaysv.dsvbootanimdemo.BootAnimService
+ com.desaysv.dsvbootanimdemo.BootAnimService$1
+ com.desaysv.dsvbootanimdemo.BootAnimService$2
+ com.desaysv.dsvbootanimdemo.BootAnimService$3
+ com.desaysv.dsvbootanimdemo.BootAnimService$4
+ com.desaysv.dsvbootanimdemo.BootAnimService$5
