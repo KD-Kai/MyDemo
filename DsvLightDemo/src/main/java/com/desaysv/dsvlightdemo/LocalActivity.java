@@ -4,22 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.IPowerManager;
-import android.os.ServiceManager;
-import android.text.Editable;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class LocalActivity extends AppCompatActivity {
 
-    private static final String TAG = "DsvLightDemo";
     private SeekBar mSeekbar;
     private Button mReturn;
     private Button mNextTest;
@@ -44,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if (mBrightness != progress/100) {
                 mBrightness = progress/100;
-                BrightnessProxy.setLocalBrightness(MainActivity.this, mBrightness);
+                BrightnessProxy.setLocalBrightness(LocalActivity.this, mBrightness);
             }
         }
 
@@ -65,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             if (v == mReturn) {
                 finish();
             } else if (v == mNextTest) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(LocalActivity.this, LocalActivity.class);
                 startActivity(intent);
             }
         }
