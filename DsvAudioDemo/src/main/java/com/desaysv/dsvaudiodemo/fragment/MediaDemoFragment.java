@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
+import com.desaysv.ivi.car.audio.strategy.impl.SvCarAudioManager;
 
 import java.util.HashMap;
 
@@ -37,6 +37,7 @@ public class MediaDemoFragment extends BaseFragment {
         if (mAudioAttributes != null) {
             return;
         }
+
         hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_USB_0);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_SERVICE, SERVICE_NAME);
         hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_ACTIVITY, ACTIVITY_NAME);
@@ -63,6 +64,7 @@ public class MediaDemoFragment extends BaseFragment {
     }
 
     public boolean abandonFocus() {
+        Log.d(TAG, "abandonFocus: mAudioFocus = " + mAudioFocus);
         if (mAudioFocus != AudioManager.AUDIOFOCUS_NONE) {
             int requestResult = SourceUtil.doAbandonAudioFocus(mAudioManager, onAudioFocusChangeListener,
                     mAudioAttributes, mTargetFocus);

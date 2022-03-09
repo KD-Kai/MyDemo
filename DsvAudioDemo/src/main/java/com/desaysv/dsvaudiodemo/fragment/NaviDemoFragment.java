@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
+import com.desaysv.ivi.car.audio.strategy.impl.SvCarAudioManager;
 
 import java.util.HashMap;
 
@@ -65,6 +65,7 @@ public class NaviDemoFragment extends BaseFragment {
     }
 
     public boolean abandonFocus() {
+        Log.d(TAG, "abandonFocus: mAudioFocus = " + mAudioFocus);
         if (mAudioFocus != AudioManager.AUDIOFOCUS_NONE) {
             int requestResult = SourceUtil.doAbandonAudioFocus(mAudioManager, onAudioFocusChangeListener,
                     mAudioAttributes, mTargetFocus);

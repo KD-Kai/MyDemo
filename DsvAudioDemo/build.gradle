@@ -37,5 +37,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    compileOnly files('../commonLib/dsv-platformadapter-android_p.jar')
+    compileOnly files('../commonLib/android.car.jar')
+    implementation files('../commonLib/desaysv.android.ext.car.jar')
 }
