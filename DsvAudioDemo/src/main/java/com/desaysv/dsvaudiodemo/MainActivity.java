@@ -10,12 +10,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.desaysv.dsvaudiodemo.fragment.MediaDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.NaviDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.PhoneDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.RingDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.VoiceDemoFragment;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setFragment(mFragmentName[DEMO_VOICE], R.id.fragment_audio_voice);
         setFragment(mFragmentName[DEMO_RING], R.id.fragment_audio_ring);
         getPermission();
+        monitorSourceChange();
     }
 
     private void setFragment(String fragmentName, @IdRes int resId) {
@@ -58,5 +61,14 @@ public class MainActivity extends AppCompatActivity {
         if (permission != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10);
         }
+    }
+
+    private void monitorSourceChange() {
+        SvCarAudioManager.get(this).registerSourceListener(new SvCarAudioManager.OnSourceChangeListener() {
+            @Override
+            public void onSourceChange(String s) {
+                Log.d("DsvAudioDemo", "onSourceChange: s = " + s);
+            }
+        });
     }
 }
