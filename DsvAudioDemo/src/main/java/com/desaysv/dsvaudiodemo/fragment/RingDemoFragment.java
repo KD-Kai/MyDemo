@@ -41,7 +41,7 @@ public class RingDemoFragment extends BaseFragment {
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 0);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
         AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .setUsage(AudioAttributes.USAGE_ALARM).build();
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE).build();
 
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }

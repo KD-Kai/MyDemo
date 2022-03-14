@@ -42,7 +42,7 @@ public class NaviDemoFragment extends BaseFragment {
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 0);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
         AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION).build();
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE).build();
 
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
