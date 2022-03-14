@@ -22,10 +22,10 @@ public class PhoneDemoFragment extends BaseFragment {
 
     @Override
     protected void init(LayoutInflater inflater, ViewGroup container) {
-        super.init(inflater, container);
         mAudioFocus = AudioManager.AUDIOFOCUS_NONE;
         initAudioAttr();
         initAudioStatus();
+        super.init(inflater, container);
     }
 
     private void initAudioAttr() {

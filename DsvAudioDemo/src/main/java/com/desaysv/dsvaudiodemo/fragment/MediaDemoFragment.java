@@ -22,9 +22,9 @@ public class MediaDemoFragment extends BaseFragment {
 
     @Override
     protected void init(LayoutInflater inflater, ViewGroup container) {
-        super.init(inflater, container);
         initAudioStatus();
         initAudioAttr();
+        super.init(inflater, container);
     }
     private void initAudioStatus() {
         mTargetFocus = AudioManager.AUDIOFOCUS_GAIN;
@@ -44,8 +44,11 @@ public class MediaDemoFragment extends BaseFragment {
         hashMap.put(SvCarAudioManager.KEY_SUPPORT_SV_EXTEND_FOCUS_STATE, true);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 1);//设置是否恢复音源
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
-        AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .setUsage(AudioAttributes.USAGE_MEDIA).build();
+        AudioAttributes attributes = (new AudioAttributes.Builder())
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setLegacyStreamType(120)
+                .build();
 
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
