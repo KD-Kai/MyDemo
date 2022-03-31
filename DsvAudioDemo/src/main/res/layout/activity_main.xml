@@ -12,27 +12,27 @@
 
         <FrameLayout
             android:id="@+id/fragment_audio_media"
-            android:layout_width="800dp"
+            android:layout_width="650dp"
             android:layout_height="match_parent" />
 
         <FrameLayout
             android:id="@+id/fragment_audio_voice"
-            android:layout_width="800dp"
+            android:layout_width="650dp"
             android:layout_height="match_parent" />
 
         <FrameLayout
             android:id="@+id/fragment_audio_navi"
-            android:layout_width="800dp"
+            android:layout_width="650dp"
             android:layout_height="match_parent" />
 
         <FrameLayout
             android:id="@+id/fragment_audio_phone"
-            android:layout_width="800dp"
+            android:layout_width="650dp"
             android:layout_height="match_parent" />
 
         <FrameLayout
             android:id="@+id/fragment_audio_ring"
-            android:layout_width="800dp"
+            android:layout_width="650dp"
             android:layout_height="match_parent" />
 
     </LinearLayout>

@@ -63,7 +63,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected void init(LayoutInflater inflater, ViewGroup container) {
         mRoot = inflater.inflate(R.layout.fragment_audio_demo, container, false);
         TextView textView = mRoot.findViewById(R.id.audio_demo_name_tv);
-        textView.setText(TAG);
+        textView.setText(TAG.substring(13));
 
         mPlayBtn = mRoot.findViewById(R.id.audio_demo_play_btn);
         mPauseBtn = mRoot.findViewById(R.id.audio_demo_pause_btn);

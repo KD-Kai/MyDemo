@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/audio_demo_fragment_bg"
+    android:background="@color/black"
     tools:context=".fragment.MediaDemoFragment">
 
     <TextView
         android:id="@+id/audio_demo_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
+        android:textColor="#AAAAAA"
         android:textSize="32sp"
         android:gravity="center" />
 
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="Position: "
             android:textSize="28sp"/>
 
@@ -51,14 +51,14 @@
             android:id="@+id/audio_demo_position_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="00:00"
             android:textSize="28sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="Duration: "
             android:textSize="28sp"
             android:layout_marginStart="100dp"/>
@@ -67,7 +67,7 @@
             android:id="@+id/audio_demo_duration_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="00:00"
             android:textSize="28sp" />
     </LinearLayout>
@@ -98,7 +98,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="Request Result: "
             android:textSize="28sp"/>
 
@@ -106,15 +106,15 @@
             android:id="@+id/audio_demo_request_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="false"
             android:textSize="28sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="Current Focus: "
+            android:textColor="#AAAAAA"
             android:textSize="28sp"
             android:layout_marginStart="100dp"/>
 
@@ -122,7 +122,7 @@
             android:id="@+id/audio_demo_current_focus_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#AAAAAA"
             android:text="0"
             android:textSize="28sp" />
     </LinearLayout>
