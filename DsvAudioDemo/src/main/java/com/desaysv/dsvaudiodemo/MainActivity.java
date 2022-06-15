@@ -10,12 +10,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.desaysv.dsvaudiodemo.fragment.MediaDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.NaviDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.PhoneDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.RingDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.VoiceDemoFragment;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int DEMO_VOICE = 3;
     private static final int DEMO_RING = 4;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         setFragment(mFragmentName[DEMO_VOICE], R.id.fragment_audio_voice);
         setFragment(mFragmentName[DEMO_RING], R.id.fragment_audio_ring);
         getPermission();
+
+        SvCarAudioManager.get(this).registerSourceListener(new SvCarAudioManager.OnSourceChangeListener() {
+            @Override
+            public void onSourceChange(String s) {
+                Log.d("AudioDemo", "onSourceChange: source = " + s);
+            }
+        });
     }
 
     private void setFragment(String fragmentName, @IdRes int resId) {

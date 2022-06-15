@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import com.desaysv.ivi.car.audio.strategy.impl.SvCarAudioManager;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
 
@@ -47,9 +47,7 @@ public class MediaDemoFragment extends BaseFragment {
         AudioAttributes attributes = (new AudioAttributes.Builder())
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setLegacyStreamType(120)
                 .build();
-
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
 

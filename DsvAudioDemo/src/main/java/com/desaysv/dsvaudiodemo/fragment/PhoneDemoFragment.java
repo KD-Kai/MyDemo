@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
-import com.desaysv.ivi.car.audio.strategy.impl.SvCarAudioManager;
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
 
@@ -40,9 +40,10 @@ public class PhoneDemoFragment extends BaseFragment {
         hashMap.put(SvCarAudioManager.KEY_SUPPORT_SV_EXTEND_FOCUS_STATE, true);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 0);
         hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
-        AudioAttributes attributes = (new AudioAttributes.Builder()).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION).build();
-
+        AudioAttributes attributes = (new AudioAttributes.Builder())
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION)
+                .build();
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
 
