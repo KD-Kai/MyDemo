@@ -34,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkPermission();
-        mMediaRecorderDemo = new MediaRecorderDemo();
+        //checkPermission();
+
+        getStoragePermission();
+        getRecodePermission();
+        mMediaRecorderDemo = new MediaRecorderDemo(this);
         mMediaRecorderDemo.setOnRecorderStatusListener(onRecorderStatusListener);
         mMediaPlayerDemo = new MediaPlayerDemo(this);
         mMediaPlayerDemo.setOnPlayerStatusListener(onPlayerStatusListener);
@@ -134,6 +137,20 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 权限申请
      */
+    private void getStoragePermission(){
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10);
+        }
+    }
+
+    private void getRecodePermission(){
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 10);
+        }
+    }
+
     private void checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             String[] permissions = new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE};

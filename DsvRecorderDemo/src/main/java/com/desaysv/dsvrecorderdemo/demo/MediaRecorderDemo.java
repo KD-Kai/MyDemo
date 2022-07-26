@@ -1,5 +1,6 @@
 package com.desaysv.dsvrecorderdemo.demo;
 
+import android.content.Context;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -14,17 +15,22 @@ import java.io.FileDescriptor;
 public class MediaRecorderDemo {
 
     private static final String TAG = "RecorderDemo";
-    private static final String RECORDER_FILE_PATH = "/sdcard/test.mp3";
+    public static String RECORDER_FILE_PATH = "/test.mp3";
 
     private static final int MSG_START_RECORDER = 1;
     private static final int MSG_STOP_RECORDER = 2;
 
     private HandlerThread mRecorderThread;
     private Handler mHandler;
+    private Context mContext;
 
     private FileDescriptor fd = new FileDescriptor();
 
-    public MediaRecorderDemo() {
+    public MediaRecorderDemo(Context context) {
+        mContext = context;
+        RECORDER_FILE_PATH = mContext.getExternalFilesDir(null).getAbsolutePath() + RECORDER_FILE_PATH;
+        //RECORDER_FILE_PATH = /storage/emulated/0/Android/data/com.desaysv.dsvrecorderdemo/files/test.mp3
+        Log.d(TAG, "MediaRecorderDemo: RECORDER_FILE_PATH = " + RECORDER_FILE_PATH);
         initRecorderThread();
     }
 

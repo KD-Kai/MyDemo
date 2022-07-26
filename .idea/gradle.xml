@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/DsvKeyDemo" />
             <option value="$PROJECT_DIR$/DsvLightDemo" />
             <option value="$PROJECT_DIR$/DsvRecorderDemo" />
+            <option value="$PROJECT_DIR$/DsvVolumeDemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

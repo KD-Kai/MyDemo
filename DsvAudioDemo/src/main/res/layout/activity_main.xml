@@ -35,6 +35,11 @@
             android:layout_width="650dp"
             android:layout_height="match_parent" />
 
+        <FrameLayout
+            android:id="@+id/fragment_audio_sys"
+            android:layout_width="650dp"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
 </HorizontalScrollView>

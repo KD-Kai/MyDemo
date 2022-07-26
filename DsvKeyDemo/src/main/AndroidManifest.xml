@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.desaysv.dsvkeydemo">
+    package="com.desaysv.dsvkeydemo"
+    android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="desaysv.permission.RECEIVE_HARD_KEY_VR"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
         android:allowBackup="true"

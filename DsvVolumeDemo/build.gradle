@@ -29,16 +29,17 @@ android {
     //-------------添加系统签名 begin -------------
     signingConfigs {
         platform {
-            storeFile file("../platform_key/toyota_avn.keystore")
-            storePassword "desaysv"
-            keyAlias "toyota_avn_key"
-            keyPassword "desaysv"
+            storeFile file("../platform_key/23mm_hi.keystore")
+            storePassword "23mm_high"
+            keyAlias "23mm_high_key"
+            keyPassword "23mm_high"
         }
     }
     buildTypes.each { bt ->
         bt.signingConfig = signingConfigs.platform
     }
     //----------------签名 end-------------------
+
 }
 
 dependencies {

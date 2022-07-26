@@ -1,12 +1,16 @@
 package com.desaysv.dsvkeydemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -37,16 +41,10 @@ public class MainActivity extends AppCompatActivity {
         mKeyPolicyManager.setHiCarNeedHandle(false);
 
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.desaysv.action.key.VR");
-//        intentFilter.addAction("com.desaysv.action.key.VR_SINGLE_CLICK");
-//        intentFilter.addAction("com.desaysv.action.key.VR_DOUBLE_CLICK");
-        intentFilter.addAction("com.desaysv.action.key.ON_HOOK");
         intentFilter.addAction("com.desaysv.action.key.OFF_HOOK");
+        intentFilter.addAction("com.tencent.mm.plugin.openapi.Intent.ACTION_NOTIFY_VOIP");
+        intentFilter.addCategory("com.tencent.mm.category.com.tencent.autowechat");
         registerReceiver(broadcastReceiver, intentFilter);
-
-        Intent intent = new Intent("desaysv.intent.action.bootanim");
-        intent.setClassName("com.desaysv.dsvbootanimdemo", "com.desaysv.dsvbootanimdemo.BootAnimReceiver");
-        sendBroadcast(intent);
         Log.d(TAG, "onCreate");
     }
 
@@ -69,20 +67,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "onReceive: getAction = " + intent.getAction());
-            if (intent.getAction().contains("HOOK")) {
-                Log.d(TAG, "onReceive: EXTRA_KEY_EVENT_STATUS = " + intent.getStringExtra("com.desaysv.key.EXTRA_KEY_EVENT_STATUS"));
-                Log.d(TAG, "onReceive: EXTRA_IS_ON_HOOK_VALID = " + intent.getBooleanExtra("com.desaysv.key.EXTRA_IS_ON_HOOK_VALID", false));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_WE_CHAT = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_WE_CHAT"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_BT_PHONE = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_BT_PHONE"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_PHONE_LINK = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_PHONE_LINK"));
-            }
-            if (intent.getAction().contains("VR")) {
-                Log.d(TAG, "onReceive: EXTRA_KEY_EVENT_STATUS = " + intent.getStringExtra("com.desaysv.key.EXTRA_KEY_EVENT_STATUS"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_WE_CHAT = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_WE_CHAT"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_PHONE_LINK = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_PHONE_LINK"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_HUAWEI_VR = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_HUAWEI_VR"));
-                Log.d(TAG, "onReceive: EXTRA_PROCESSOR_DEVICE_MGR = " + intent.getStringExtra("com.desaysv.key.EXTRA_PROCESSOR_DEVICE_MGR"));
-            }
         }
     };
 }

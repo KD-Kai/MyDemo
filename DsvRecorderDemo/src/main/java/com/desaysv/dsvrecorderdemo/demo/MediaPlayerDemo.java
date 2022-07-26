@@ -15,7 +15,6 @@ import java.io.FileDescriptor;
 public class MediaPlayerDemo {
 
     private static final String TAG = "PlayerDemo";
-    private static final String PLAYER_FILE_PATH = "/sdcard/test.mp3";
 
     private static final int MSG_START_PLAYER = 1;
     private static final int MSG_STOP_PLAYER = 2;
@@ -87,9 +86,9 @@ public class MediaPlayerDemo {
                     mediaPlayer.setOnErrorListener(onErrorListener);
                     mediaPlayer.setOnCompletionListener(onCompletionListener);
                 }
-                if (new File(PLAYER_FILE_PATH).exists()) {
+                if (new File(MediaRecorderDemo.RECORDER_FILE_PATH).exists()) {
                     mediaPlayer.reset();
-                    mediaPlayer.setDataSource(PLAYER_FILE_PATH);
+                    mediaPlayer.setDataSource(MediaRecorderDemo.RECORDER_FILE_PATH);
                     mediaPlayer.prepare();
                     audioFocusDemo.requestFocus();
                     mediaPlayer.start();

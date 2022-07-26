@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected View mRoot = null;
     protected FragmentActivity mActivity;
     protected Context mContext;
-    protected int mAudioFocus;
+    protected int mAudioFocus = 1;
 
     private HandlerThread mChildThread = null;
     private Handler mChildHandler = null;

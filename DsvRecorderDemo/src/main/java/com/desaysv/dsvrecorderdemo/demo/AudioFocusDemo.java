@@ -6,9 +6,10 @@ import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.util.Log;
 
+import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
+
 import java.util.HashMap;
 
-import desaysv.adapter.app.audio.SvCarAudioManager;
 
 public class AudioFocusDemo {
 

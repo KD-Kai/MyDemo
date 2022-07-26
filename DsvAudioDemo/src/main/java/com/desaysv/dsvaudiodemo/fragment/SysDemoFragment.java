@@ -6,12 +6,13 @@ import android.media.AudioManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import com.desaysv.dsvaudiodemo.util.SourceUtil;
 import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
 import java.util.HashMap;
 
-public class RingDemoFragment extends BaseFragment {
+public class SysDemoFragment extends BaseFragment {
 
     private AudioManager mAudioManager;
     //private AudioAttributes mAudioAttributes;
@@ -34,15 +35,9 @@ public class RingDemoFragment extends BaseFragment {
         if (mAudioAttributes != null) {
             return;
         }
-        hashMap.put(SvCarAudioManager.KEY_CAR_AUDIO_TYPE, SvCarAudioManager.CAR_AUDIO_TYPE_CP_RING);
-        hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_SERVICE, SERVICE_NAME);
-        hashMap.put(SvCarAudioManager.KEY_CLASS_NAME_ACTIVITY, ACTIVITY_NAME);
-        hashMap.put(SvCarAudioManager.KEY_SUPPORT_SV_EXTEND_FOCUS_STATE, true);
-        hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME, 0);
-        hashMap.put(SvCarAudioManager.KEY_BOOT_RESUME_TIME_OUT, 30000);//设置音源恢复超时设置
         AudioAttributes attributes = (new AudioAttributes.Builder())
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                 .build();
         mAudioAttributes = SvCarAudioManager.setCarAttr(attributes, hashMap);
     }
@@ -87,11 +82,11 @@ public class RingDemoFragment extends BaseFragment {
 
     @Override
     protected boolean onRequestFocus() {
-        return requestFocus();
+        return true;
     }
 
     @Override
     protected boolean onAbandonFocus() {
-        return abandonFocus();
+        return true;
     }
 }

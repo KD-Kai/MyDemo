@@ -16,6 +16,7 @@ import com.desaysv.dsvaudiodemo.fragment.MediaDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.NaviDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.PhoneDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.RingDemoFragment;
+import com.desaysv.dsvaudiodemo.fragment.SysDemoFragment;
 import com.desaysv.dsvaudiodemo.fragment.VoiceDemoFragment;
 import com.desaysv.ivi.platformadapter.app.audio.SvCarAudioManager;
 
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
             NaviDemoFragment.class.getName(),
             PhoneDemoFragment.class.getName(),
             VoiceDemoFragment.class.getName(),
-            RingDemoFragment.class.getName()
+            RingDemoFragment.class.getName(),
+            SysDemoFragment.class.getName()
     };
 
     private static final int DEMO_MEDIA = 0;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int DEMO_PHONE = 2;
     private static final int DEMO_VOICE = 3;
     private static final int DEMO_RING = 4;
+    private static final int DEMO_SYS = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setFragment(mFragmentName[DEMO_PHONE], R.id.fragment_audio_phone);
         setFragment(mFragmentName[DEMO_VOICE], R.id.fragment_audio_voice);
         setFragment(mFragmentName[DEMO_RING], R.id.fragment_audio_ring);
+        setFragment(mFragmentName[DEMO_SYS], R.id.fragment_audio_sys);
         getPermission();
 
         SvCarAudioManager.get(this).registerSourceListener(new SvCarAudioManager.OnSourceChangeListener() {
